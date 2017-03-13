@@ -4,65 +4,67 @@ angular
   .module("gaConnect", ["ui.router", "ngResource"])
   .config(["$stateProvider", RouterFunction])
   .factory("GaFactory", ["$resource", GaFactoryFuntion])
-  .controller("GaIndexController", [GaIndexControllerFunction])
+  .controller("GaIndexController", ["GaFactory", GaIndexControllerFunction])
   .controller("GaShowController", ["$stateParams", GaShowControllerFunction])
   .controller("GaEditController", ["$stateParams", "$state", GaEditControllerFunction])
   .controller("GaNewController", ["$state", GaNewControllerFunction])
 
 function RouterFunction($stateProvider) {
   $stateProvider
-  .state("gaIndex", [
-    url: "gaconnect",
+  .state("gaIndex", {
+    url: "/gaconnect",
     templateUrl: "js/ng-views/index.html",
     controller: "GaIndexController",
     controllerAs: "vm"
-  ])
-  .state("gaShow", [
+  })
+  .state("gaShow", {
     url: "gaconnect/:id",
     templateUrl: "js/ng-views/show.html",
     controller: "GaShowController",
     controllerAs: "vm"
-  ])
-  .state("gaEdit", [
+  })
+  .state("gaEdit", {
     url: "gaconnect/:id/edit",
     templateUrl: "js/ng-views/edit.html",
     controller: "GaEditController",
     controllerAs: "vm"
-  ])
-  .state("gaNew", [
+  })
+  .state("gaNew", {
     url: "gaconnect/new",
     templateUrl: "js/ng-views/new.html",
     controller: "GaNewController",
     controllerAs: "vm"
-  ])
+  })
 }
 
 function GaFactoryFuntion($resource) {
   // return json file link right here
-  // return $resource(ADD FILE LINK HERE)
+  return $resource("https://gist.githubusercontent.com/rodneycurl/df6c512078a645a764a13856aa1c155a/raw/c42459357d12395d6a61942791eb1d3c764625b7/ga-connect-seed-data.json")
 }
 
-function GaIndexControllerFunction() {
-  this.connected = GaFactory.query()
+function GaIndexControllerFunction(GaFactory) {
+  this.GaFactory = GaFactory.get()
+  // .query() expects to return an array
+  // .get() expects to return an object
 }
 
 function GaShowControllerFunction($stateParams) {
-  this.connected = GaFactory.get({id: $stateParams.id})
+  this.GaFactory = GaFactory.get({id: $stateParams.id})
 }
 
 function GaEditControllerFunction($stateParams, $state) {
-  this.connected = GaFactory.get({id: $stateParams.id})
+  this.GaFactory = GaFactory.get({id: $stateParams.id})
   this.update = function() {
-    this.connected.$update({id: $stateParams.id})
+    this.GaFactory.$update({id: $stateParams.id})
   }
   this.destroy = function() {
-    this.connected.$delete({id: $stateParams.id})
+    this.GaFactory.$delete({id: $stateParams.id})
   }
 }
 
 function GaNewControllerFunction($state) {
-  this.connected = new GaFactory()
+  this.GaFactory = new GaFactory()
   this.create = function() {
-    this.connected.$save()
+    this.GaFactory.$save()
   }
 }
