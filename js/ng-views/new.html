@@ -1,9 +1,16 @@
 <a data-ui-sref>New User</a>
 
 <form >
-  <input type="text" placeholder = "Name" data-ng-model = "vm.name"><br>
-  <input type="text" placeholder = "Course" data-ng-model = "vm.course"><br>
-  <input type="text" placeholder = "Year" data-ng-model = "vm.year"><br>
+  <input type="text" placeholder = "Email" data-ng-model = "vm.email"><br>
+  <input type="text" placeholder = "Name" data-ng-model = "vm.first_name"><br>
+  <!-- will rename first name field to just name later on -->
+
+  <input type="text" placeholder = "Location" data-ng-model = "vm.location"><br>
+  <input type="text" placeholder = "Position Title" data-ng-model = "vm.position_title"><br>
+  <input type="text" placeholder = "Position Company" data-ng-model = "vm.position_company"><br>
+  <input type="text" placeholder = "Picture URL" data-ng-model = "vm.picture_url"><br>
+  <input type="text" placeholder = "Profile URL" data-ng-model = "vm.profile_url"><br>
+  <textarea type="text" placeholder = "Headline" data-ng-model = "vm.headline"><br>
   <button type="button" data-ng-click = "vm.create()">Add User</button>
   <!-- need to add more content to the form -->
 </form>

@@ -1,7 +1,10 @@
 <h1>User Show</h1>
 
-<p>User Name: {{vm.user.name}}</p>
-<p>Course: {{vm.user.course}}</p>
-<p>Year: {{vm.user.year}}</p>
-
-<!-- will add more once form gets more input fields -->
+<li>Email: {{vm.user.email}}</li>
+<li>Name: {{vm.user.first_name}}</li>
+<li>Headline: {{vm.user.headline}}</li>
+<li>Location: {{vm.user.location}}</li>
+<li>Position Title: {{vm.user.position_title}}</li>
+<li>Position Company: {{vm.user.position_company}}</li>
+<li>Picture: <img ng-src="{{vm.user.picture_url}}"></li>
+<li>Profile: {{vm.user.profile_url}}</li>

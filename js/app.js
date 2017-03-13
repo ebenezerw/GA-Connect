@@ -39,12 +39,12 @@ function RouterFunction($stateProvider) {
 
 function GaFactoryFuntion($resource) {
   // return json file link right here
-  // return $resource( "https://gist.githubusercontent.com/rodneycurl/df6c512078a645a764a13856aa1c155a/raw/104b46ade7f5d68f74f9b4c747dce33e9569c2c7/ga-connect-seed-data.json" )
-  return $resource("http://localhost:3000/gaconnect/:id", {}, {
-    update: {
-      method: "PUT"
-    }
-  })
+  return $resource( "https://gist.githubusercontent.com/rodneycurl/df6c512078a645a764a13856aa1c155a/raw/5d37be19b7db08e8fb8bc48eebb098bc1ff6e2e6/ga-connect-seed-data.json" )
+  // return $resource("http://localhost:3000/users/:id", {}, {
+  //   update: {
+  //     method: "PUT"
+  //   }
+  // })
 }
 
 function GaIndexControllerFunction( GaFactory ) {
