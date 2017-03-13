@@ -1,3 +1,6 @@
-<div data-ng-repeat="user in vm.connected">
-  <p><a data-ui-sref="userShow({id: user.id})">{{user.name}}</a></p>
+<h1>hello</h1>
+
+<a data-ui-sref="gaNew">New User</a>
+<div data-ng-repeat="user in vm.users">
+  <p><a data-ui-sref="gaShow({id: user.id})">{{user.name}}</a></p>
 </div>
