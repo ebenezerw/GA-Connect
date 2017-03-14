@@ -1,6 +1,6 @@
 <h1>hello</h1>
 
 <a data-ui-sref="gaNew">New User</a>
-<div data-ng-repeat="user in vm.users">
-  <p><a data-ui-sref="gaShow({id: user.id})">{{user.first_name}}</a></p>
+<div data-ng-repeat="student in vm.students">
+  <p><a data-ui-sref="gaShow({id: student.id})">{{student.full_name}}</a></p>
 </div>
