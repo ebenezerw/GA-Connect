@@ -1,5 +1,5 @@
 <h1>User Show</h1>
-
+<div ng-controller="GaShowController as vm">
 <li>Email: {{vm.student.email}}</li>
 <li>Name: {{vm.student.full_name}}</li>
 <li>Headline: {{vm.student.headline}}</li>
@@ -8,4 +8,8 @@
 <li>Position Company: {{vm.student.position_company}}</li>
 <li>Picture: <img ng-src="{{vm.student.picture_url}}"></li>
 <li>Profile: {{vm.student.profile_url}}</li>
-<button data-ui-sref = "gaEdit({id: vm.student.id})">Edit</button>
+<a data-ui-sref = "gaEdit({id: vm.student.id})">Edit</a>
+</div>
+
+
+<!-- <a data-ui-sref= "entryEdit({id: entry.id})">Edit</a> -->
