@@ -1,16 +1,17 @@
 <h1 data-ui-sref>Edit Information</h1>
 
 <form >
-  <input type="text" placeholder = "vm.email" data-ng-model = "vm.email"><br>
-  <input type="text" placeholder = "vm.first_name" data-ng-model = "vm.first_name"><br>
+  <input type="text" placeholder = "{{vm.email}}" data-ng-model = "vm.email"><br>
+  <input type="text" placeholder = "{{vm.first_name}}" data-ng-model = "vm.first_name"><br>
   <!-- will rename first name field to just name later on -->
 
-  <input type="text" placeholder = "vm.location" data-ng-model = "vm.location"><br>
-  <input type="text" placeholder = "vm.position_title" data-ng-model = "vm.position_title"><br>
-  <input type="text" placeholder = "vm.position_company" data-ng-model = "vm.position_company"><br>
-  <input type="text" placeholder = "vm.picture_url" data-ng-model = "vm.picture_url"><br>
-  <input type="text" placeholder = "vm.profile_url" data-ng-model = "vm.profile_url"><br>
-  <input type="text" placeholder = "vm.headline" data-ng-model = "vm.headline"><br>
-  <button type="button" data-ng-click = "vm.create()">Add User</button>
+  <input type="text" placeholder = "{{vm.location}}" data-ng-model = "vm.location"><br>
+  <input type="text" placeholder = "{{vm.position_title}}" data-ng-model = "vm.position_title"><br>
+  <input type="text" placeholder = "{{vm.position_company}}" data-ng-model = "vm.position_company"><br>
+  <input type="text" placeholder = "{{vm.picture_url}}" data-ng-model = "vm.picture_url"><br>
+  <input type="text" placeholder = "{{vm.profile_url}}" data-ng-model = "vm.profile_url"><br>
+  <input type="text" placeholder = "{{vm.headline}}" data-ng-model = "vm.headline"><br>
+  <button type="button" data-ng-click = "vm.create()">Edit User</button>
+  <button data-ui-sref = "gaShow({id: vm.id})">Back</button>
   <!-- need to add more content to the form -->
 </form>
