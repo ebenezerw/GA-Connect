@@ -56,7 +56,7 @@ function GaShowControllerFunction( GaFactory, $stateParams, $state ) {
   vm.user = GaFactory.get({id: $stateParams.id});
 }
 
-function GaEditControllerFunction($stateParams, $state) {
+function GaEditControllerFunction(GaFactory, $stateParams, $state) {
   this.user = GaFactory.get({id: $stateParams.id})
   this.update = function() {
     this.user.$update({id: $stateParams.id})
