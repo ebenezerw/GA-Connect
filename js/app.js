@@ -3,7 +3,7 @@
 angular
   .module("gaConnect", ["ui.router", "ngResource"])
   .config(["$stateProvider", RouterFunction])
-  .factory("GaFactory", ["$resource", GaFactoryFuntion])
+  .factory("GaFactory", ["$resource", GaFactoryFunction])
   .controller("GaIndexController", ["GaFactory", GaIndexControllerFunction])
   .controller("GaShowController", ["GaFactory", "$stateParams", GaShowControllerFunction])
   .controller("GaEditController", ["GaFactory", "$stateParams", "$state", GaEditControllerFunction])
@@ -18,36 +18,37 @@ function RouterFunction($stateProvider) {
     controllerAs: "vm"
   })
   .state("gaShow", {
-    url: "gaconnect/:id",
+    url: "/gaconnect/:id",
     templateUrl: "js/ng-views/show.html",
     controller: "GaShowController",
-    controllerAs: "vm"
+
   })
   .state("gaEdit", {
-    url: "gaconnect/:id/edit",
+    url: "/gaconnect/:id/edit",
     templateUrl: "js/ng-views/edit.html",
     controller: "GaEditController",
     controllerAs: "vm"
   })
   .state("gaNew", {
-    url: "gaconnect/new",
+    url: "/gaconnect/new",
     templateUrl: "js/ng-views/new.html",
     controller: "GaNewController",
     controllerAs: "vm"
   })
 }
 
-function GaFactoryFuntion($resource) {
+function GaFactoryFunction($resource, $stateProvider) {
   // return json file link right here
-  return $resource( "https://gist.githubusercontent.com/rodneycurl/df6c512078a645a764a13856aa1c155a/raw/5d37be19b7db08e8fb8bc48eebb098bc1ff6e2e6/ga-connect-seed-data.json" )
+  return $resource( "https://gist.githubusercontent.com/rodneycurl/df6c512078a645a764a13856aa1c155a/raw/58524dd4e5f25e100f5db4463f97a722b1b090c1/ga-connect-seed-data.json" )
   // return $resource("http://localhost:3000/users/:id", {}, {
   //   update: {
   //     method: "PUT"
   //   }
   // })
 }
-
-function GaIndexControllerFunction( GaFactory ) {
+var vm = this;
+function GaIndexControllerFunction( GaFactory) {
+  // var vm = this;
   this.users = GaFactory.query()
   // .query() expects to return an array
   // .get() expects to return an object
