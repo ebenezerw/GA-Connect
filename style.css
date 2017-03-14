@@ -28,3 +28,10 @@ input {
 }
 
 /*Using dummy data for the layout until we get the backend and frontend connected.*/
+
+
+    <!-- Include jQuery (required) and the JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="dist/toolkit.min.js"></script>
+  </body>
+</html>
