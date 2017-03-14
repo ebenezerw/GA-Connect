@@ -40,10 +40,8 @@ function GaFactoryFuntion($resource) {
     update: {method: "PUT"}
   })
   // return $resource("http://localhost:3000/users/:id", {}, {
-  // update: {
-  //     method: "PUT"
-  //   }
-  //  })
+  //  update: {method: "PUT"}
+  // })
 }
 
 function GaIndexControllerFunction( GaFactory ) {
@@ -53,6 +51,7 @@ function GaIndexControllerFunction( GaFactory ) {
 }
 
 function GaShowControllerFunction( GaFactory, $stateParams, $state ) {
+  // create an edit link within the show controller
   var vm = this;
   vm.user = GaFactory.get({id: $stateParams.id});
 }
@@ -68,6 +67,7 @@ function GaEditControllerFunction($stateParams, $state) {
 }
 
 function GaNewControllerFunction(GaFactory, $state) {
+  // just need to update properly
   this.user = new GaFactory()
   this.create = function() {
     this.user.$save()
