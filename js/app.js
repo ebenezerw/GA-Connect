@@ -1,5 +1,4 @@
 "use strict";
-
 angular
   .module("gaConnect", ["ui.router", "ngResource"])
   .config(["$stateProvider", RouterFunction])
@@ -7,8 +6,7 @@ angular
   .controller("GaIndexController", ["GaFactory", GaIndexControllerFunction])
   .controller("GaShowController", ["GaFactory", "$stateParams", GaShowControllerFunction])
   .controller("GaEditController", ["GaFactory", "$stateParams", "$state", GaEditControllerFunction])
-  .controller("GaNewController", ["GaFactory", "$state", GaNewControllerFunction])
-
+  .controller("GaNewController", ["GaFactory", "$state", GaNewControllerFunction]);
 function RouterFunction($stateProvider) {
   $stateProvider
   .state("gaIndex", {
@@ -36,10 +34,14 @@ function RouterFunction($stateProvider) {
     controllerAs: "vm"
   })
 }
-
 function GaFactoryFuntion($resource) {
   // return json file link right here
-  return $resource( "https://gist.githubusercontent.com/rodneycurl/df6c512078a645a764a13856aa1c155a/raw/104b46ade7f5d68f74f9b4c747dce33e9569c2c7/ga-connect-seed-data.json" )
+  return $resource( "https://gist.githubusercontent.com/rodneycurl/df6c512078a645a764a13856aa1c155a/raw/58524dd4e5f25e100f5db4463f97a722b1b090c1/ga-connect-seed-data.json", {}, {
+    update: {method: "PUT"}
+  })
+  // return $resource("http://localhost:3000/users/:id", {}, {
+  //  update: {method: "PUT"}
+  // })
 }
 
 function GaIndexControllerFunction( GaFactory ) {
@@ -48,11 +50,13 @@ function GaIndexControllerFunction( GaFactory ) {
   // .get() expects to return an object
 }
 
-function GaShowControllerFunction( GaFactory, $stateParams ) {
-  this.user = GaFactory.get({id: $stateParams.id})
+function GaShowControllerFunction( GaFactory, $stateParams, $state ) {
+  // create an edit link within the show controller
+  var vm = this;
+  vm.user = GaFactory.get({id: $stateParams.id});
 }
 
-function GaEditControllerFunction($stateParams, $state) {
+function GaEditControllerFunction(GaFactory, $stateParams, $state) {
   this.user = GaFactory.get({id: $stateParams.id})
   this.update = function() {
     this.user.$update({id: $stateParams.id})
@@ -63,6 +67,7 @@ function GaEditControllerFunction($stateParams, $state) {
 }
 
 function GaNewControllerFunction(GaFactory, $state) {
+  // just need to update properly
   this.user = new GaFactory()
   this.create = function() {
     this.user.$save()
