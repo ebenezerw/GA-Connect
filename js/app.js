@@ -24,6 +24,7 @@ angular
     .controller("GaEditController", [
       "GaFactory",
         "$stateParams",
+        "$state",
         GaEditControllerFunction
     ])
     .controller("GaNewController", [
@@ -78,7 +79,6 @@ function GaIndexControllerFunction(GaFactory) {
 
 function GaShowControllerFunction(GaFactory, $stateParams) {
     // create an edit link within the show controller
-
     this.student = GaFactory.get({
         id: $stateParams.id
     });
@@ -102,10 +102,8 @@ function GaEditControllerFunction(GaFactory, $stateParams, $state) {
     this.update = function(){
         this.student.$update({id: $stateParams.id}, function(student) {
             $state.go("gaShow", {id: student.id})
-
         })
     }
-
     this.destroy = function() {
         this.student.$delete({
             id: $stateParams.id
