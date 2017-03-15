@@ -1,0 +1,11 @@
+<h1>User Show</h1>
+
+<li>Email: {{vm.email}}</li>
+<li>Name: {{vm.first_name}}</li>
+<li>Headline: {{vm.headline}}</li>
+<li>Location: {{vm.location}}</li>
+<li>Position Title: {{vm.position_title}}</li>
+<li>Position Company: {{vm.position_company}}</li>
+<li>Picture: <img ng-src="{{vm.user.picture_url}}"></li>
+<li>Profile: {{vm.user.profile_url}}</li>
+<button data-ui-sref = "gaEdit({id: vm.id})">Edit</button>
