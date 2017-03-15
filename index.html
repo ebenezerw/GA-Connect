@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>GA Connect</title>
     <link rel="stylesheet" href="assets/css/toolkit.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/toolkit.css.map">
     <link rel="stylesheet" href="assets/fonts/toolkit-entypo.ttf">
     <link rel="stylesheet" href="assets/img">
@@ -17,6 +18,8 @@
   <!-- Navigation Bar -->
   <body class="with-top-navbar">
     <div class="growl" id="app-growl"></div>
+
+    <!-- <h1>GA Connect Users</h1> -->
     <main data-ui-view></main>
 
   <nav class="navbar navbar-inverse navbar-fixed-top app-navbar">
@@ -29,14 +32,14 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" href="../index.html">
-          <img src="../assets/img/brand-white.png" alt="brand">
+          <img src="../assets/img/ga-connect-logo.png" alt="General Assembly Connect">
         </a>
       </div>
       <div class="navbar-collapse collapse" id="navbar-collapse-main">
 
           <ul class="nav navbar-nav hidden-xs">
             <li>
-              <a href="../index.html">Home</a>
+              <a data-ui-serf="gaIndex">Home</a>
             </li>
             <li>
               <a href="../profile/index.html">Profile</a>
@@ -57,7 +60,7 @@
             </li>
             <li>
               <button class="btn btn-default navbar-btn navbar-btn-avitar" data-toggle="popover">
-                <img class="img-circle" src="../assets/img/avatar-dhg.png">
+                <!-- <img class="img-circle" src="../assets/img/avatar-dhg.png"> -->
               </button>
             </li>
           </ul>
