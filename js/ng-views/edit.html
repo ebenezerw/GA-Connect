@@ -1,6 +1,6 @@
 <h1>Edit Information</h1>
 
-<form>
+<form data-ng-submit="vm.update()">
   <input type="text" placeholder = "{{vm.student.email}}" data-ng-model = "vm.student.email"><br>
   <input type="text" placeholder = "{{vm.student.full_name}}" data-ng-model = "vm.student.full_name"><br>
   <!-- will rename first name field to just name later on -->
@@ -11,7 +11,7 @@
   <input type="text" placeholder = "{{vm.sudent.picture_url}}" data-ng-model = "vm.student.picture_url"><br>
   <input type="text" placeholder = "{{vm.sudent.profile_url}}" data-ng-model = "vm.student.profile_url"><br>
   <input type="text" placeholder = "{{vm.sudent.headline}}" data-ng-model = "vm.student.headline"><br>
-  <button type="button" data-ng-click="vm.update(student)">Update</button>
+  <button type="submit">Update</button>
   <button data-ui-sref = "gaShow({id: vm.student.id})">Back</button>
   <!-- need to add more content to the form -->
 </form>
