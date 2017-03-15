@@ -11,6 +11,7 @@
   <input type="text" placeholder = "Picture URL" data-ng-model = "vm.student.picture_url" /><br>
   <input type="text" placeholder = "Profile URL" data-ng-model = "vm.student.profile_url" /><br>
   <input type="text" placeholder = "Headline" data-ng-model = "vm.student.headline" /><br>
+  Select Course: <select data-ng-model="vm.student.course"><option data-ng-repeat="course in vm.courses"  value="{{course.course_name}}">{{course.course_name}}</select>
   <input type="submit" value="Create Student" />
   <!-- need to add more content to the form -->
 </form>

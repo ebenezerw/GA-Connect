@@ -1,17 +1,18 @@
 <h1>Edit Information</h1>
 
 <form data-ng-submit="vm.update()">
-  <input type="text" placeholder = "{{vm.student.email}}" data-ng-model = "vm.student.email"><br>
-  <input type="text" placeholder = "{{vm.student.full_name}}" data-ng-model = "vm.student.full_name"><br>
-  <!-- will rename first name field to just name later on -->
+  Email: <input type="text" placeholder = "{{vm.student.email}}" data-ng-model = "vm.student.email"><br>
+  Full Name: <input type="text" placeholder = "{{vm.student.full_name}}" data-ng-model = "vm.student.full_name"><br>
 
-  <input type="text" placeholder = "{{vm.sudent.location}}" data-ng-model = "vm.student.location"><br>
-  <input type="text" placeholder = "{{vm.sudent.position_title}}" data-ng-model = "vm.student.position_title"><br>
-  <input type="text" placeholder = "{{vm.sudent.position_company}}" data-ng-model = "vm.student.position_company"><br>
-  <input type="text" placeholder = "{{vm.sudent.picture_url}}" data-ng-model = "vm.student.picture_url"><br>
-  <input type="text" placeholder = "{{vm.sudent.profile_url}}" data-ng-model = "vm.student.profile_url"><br>
-  <input type="text" placeholder = "{{vm.sudent.headline}}" data-ng-model = "vm.student.headline"><br>
+
+  Location: <input type="text" placeholder = "{{vm.sudent.location}}" data-ng-model = "vm.student.location"><br>
+  Postion: <input type="text" placeholder = "{{vm.sudent.position_title}}" data-ng-model = "vm.student.position_title"><br>
+  Company: <input type="text" placeholder = "{{vm.sudent.position_company}}" data-ng-model = "vm.student.position_company"><br>
+  Picture URL: <input type="text" placeholder = "{{vm.sudent.picture_url}}" data-ng-model = "vm.student.picture_url"><br>
+  Profile Url: <input type="text" placeholder = "{{vm.sudent.profile_url}}" data-ng-model = "vm.student.profile_url"><br>
+  Headline: <input type="text" placeholder = "{{vm.student.headline}}" data-ng-model = "vm.student.headline"><br>
+  Select Course: <select data-ng-model="vm.student.course"><option data-ng-repeat="course in vm.courses"  value="{{course.course_name}}">{{course.course_name}}</select>
+<br>
   <button type="submit">Update</button>
   <button data-ui-sref = "gaShow({id: vm.student.id})">Back</button>
-  <!-- need to add more content to the form -->
 </form>

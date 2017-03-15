@@ -12,9 +12,17 @@ angular
         "$resource",
         GaFactoryFuntion
     ])
+    .factory("CourseFactory", [
+      "$resource",
+      CourseFactoryFunction
+    ])
     .controller("GaIndexController", [
         "GaFactory",
         GaIndexControllerFunction
+    ])
+    .controller("CourseIndexController", [
+        "CourseFactory",
+        CourseIndexControllerFunction
     ])
     .controller("GaShowController", [
       "GaFactory",
@@ -22,12 +30,14 @@ angular
         GaShowControllerFunction
     ])
     .controller("GaEditController", [
+      "CourseFactory",
       "GaFactory",
         "$stateParams",
         "$state",
         GaEditControllerFunction
     ])
     .controller("GaNewController", [
+      "CourseFactory",
       "GaFactory",
         "$state",
         GaNewControllerFunction
@@ -39,6 +49,12 @@ function RouterFunction($stateProvider) {
             url: "/gaconnect",
             templateUrl: "js/ng-views/index.html",
             controller: "GaIndexController",
+            controllerAs: "vm"
+        })
+        .state("courseIndex", {
+            url: "/courses",
+            templateUrl: "js/ng-views/courseindex.html",
+            controller: "CourseIndexController",
             controllerAs: "vm"
         })
         .state("gaShow", {
@@ -69,7 +85,17 @@ function GaFactoryFuntion($resource) {
     return $resource("http://localhost:3000/students/:id", {}, {
       update: { method: "PUT" }
     });
+
 }
+
+function CourseFactoryFunction($resource) {
+  return $resource("http://localhost:3000/courses/:id")
+}
+
+function CourseIndexControllerFunction(CourseFactory) {
+    this.courses = CourseFactory.query()
+}
+
 
 function GaIndexControllerFunction(GaFactory) {
     this.students = GaFactory.query()
@@ -84,8 +110,9 @@ function GaShowControllerFunction(GaFactory, $stateParams) {
     });
 }
 
-function GaNewControllerFunction(GaFactory, $state) {
+function GaNewControllerFunction(CourseFactory, GaFactory, $state) {
     // just need to update properly
+    this.courses = CourseFactory.query()
     this.student = new GaFactory();
     this.create = function() {
         this.student.$save(function(student) {
@@ -97,7 +124,8 @@ function GaNewControllerFunction(GaFactory, $state) {
 }
 
 
-function GaEditControllerFunction(GaFactory, $stateParams, $state) {
+function GaEditControllerFunction(CourseFactory, GaFactory, $stateParams, $state) {
+  this.courses = CourseFactory.query()
     this.student = GaFactory.get({id: $stateParams.id})
     this.update = function(){
         this.student.$update({id: $stateParams.id}, function(student) {
