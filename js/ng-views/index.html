@@ -1,5 +1,6 @@
 <h1>GA Connect</h1>
 <a data-ui-sref="gaNew">New User</a>
-<div data-ng-repeat="student in vm.students">
+<div data-ng-repeat="student in vm.students | filter: searchText" >
   <p><a data-ui-sref="gaShow({id: student.id})">{{student.full_name}}</a></p>
+  <p><img data-ui-sref="{{student.picture_url}}"></p>
 </div>
