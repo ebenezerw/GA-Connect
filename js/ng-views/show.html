@@ -7,7 +7,7 @@
   <ul>Position Title: {{vm.student.position_title}}</ul>
   <ul>Position Company: {{vm.student.position_company}}</ul>
   <ul>Course: {{vm.student.course}}</ul>
-  <ul>Profile: <a href="{{vm.student.profile_url}}"></a></ul>
+  <ul>Profile Link: <a href={{vm.student.profile_url}}></a></ul>
   <button data-ui-sref = "gaEdit({id: vm.student.id})">Edit</button>
   <button data-ui-sref = "gaIndex()">Back</button>
 
