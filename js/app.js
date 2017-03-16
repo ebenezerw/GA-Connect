@@ -13,8 +13,8 @@ angular
         GaFactoryFuntion
     ])
     .factory("CourseFactory", [
-      "$resource",
-      CourseFactoryFunction
+        "$resource",
+        CourseFactoryFunction
     ])
     .controller("GaIndexController", [
         "GaFactory",
@@ -25,20 +25,20 @@ angular
         CourseIndexControllerFunction
     ])
     .controller("GaShowController", [
-      "GaFactory",
+        "GaFactory",
         "$stateParams",
         GaShowControllerFunction
     ])
     .controller("GaEditController", [
-      "CourseFactory",
-      "GaFactory",
+        "CourseFactory",
+        "GaFactory",
         "$stateParams",
         "$state",
         GaEditControllerFunction
     ])
     .controller("GaNewController", [
-      "CourseFactory",
-      "GaFactory",
+        "CourseFactory",
+        "GaFactory",
         "$state",
         GaNewControllerFunction
     ]);
@@ -82,14 +82,16 @@ function GaFactoryFuntion($resource) {
     // return $resource( "https://gist.githubusercontent.com/rodneycurl/df6c512078a645a764a13856aa1c155a/raw/58524dd4e5f25e100f5db4463f97a722b1b090c1/ga-connect-seed-data.json", {}, {
     //   update: {method: "PUT"}
     // })
-    return $resource("http://localhost:3000/students/:id", {}, {
-      update: { method: "PUT" }
+    return $resource("https://gaconnectrailsapi.herokuapp.com/students/:id", {}, {
+        update: {
+            method: "PUT"
+        }
     });
 
 }
 
 function CourseFactoryFunction($resource) {
-  return $resource("http://localhost:3000/courses/:id")
+    return $resource("https://gaconnectrailsapi.herokuapp.com/courses/:id")
 }
 
 function CourseIndexControllerFunction(CourseFactory) {
@@ -125,11 +127,17 @@ function GaNewControllerFunction(CourseFactory, GaFactory, $state) {
 
 
 function GaEditControllerFunction(CourseFactory, GaFactory, $stateParams, $state) {
-  this.courses = CourseFactory.query()
-    this.student = GaFactory.get({id: $stateParams.id})
-    this.update = function(){
-        this.student.$update({id: $stateParams.id}, function(student) {
-            $state.go("gaShow", {id: student.id})
+    this.courses = CourseFactory.query()
+    this.student = GaFactory.get({
+        id: $stateParams.id
+    })
+    this.update = function() {
+        this.student.$update({
+            id: $stateParams.id
+        }, function(student) {
+            $state.go("gaShow", {
+                id: student.id
+            })
         })
     }
     this.destroy = function() {
