@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="assets/css/toolkit.css.map">
     <link rel="stylesheet" href="assets/fonts/toolkit-entypo.ttf">
     <link rel="stylesheet" href="assets/img">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.15/angular-ui-router.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0-beta.2/angular-resource.min.js"></script>
@@ -19,7 +20,7 @@
   <body class="with-top-navbar">
     <div class="growl" id="app-growl"></div>
 
-    <!-- <h1>GA Connect Users</h1> -->
+
     <main data-ui-view></main>
 
   <nav class="navbar navbar-inverse navbar-fixed-top app-navbar">
@@ -31,7 +32,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="../index.html">
+        <a class="navbar-brand" href="#/gaconnect">
           <img src="../assets/img/ga-connect-logo.png" alt="General Assembly Connect">
         </a>
       </div>
@@ -39,11 +40,11 @@
 
           <ul class="nav navbar-nav hidden-xs">
             <li>
-              <a data-ui-serf="gaIndex">Home</a>
+              <a href="#/gaconnect">Home</a>
             </li>
-            <li>
+            <!-- <li>
               <a href="../profile/index.html">Profile</a>
-            </li>
+            </li> -->
             <!-- <li>
               <a data-toggle="modal" href="#msgModal">Messages</a>
             </li>
@@ -52,25 +53,28 @@
             </li> -->
           </ul>
 
-          <ul class="nav navbar-nav navbar-right m-r-0 hidden-xs">
+          <!-- <ul class="nav navbar-nav navbar-right m-r-0 hidden-xs">
             <li >
               <a class="app-notifications" href="../notifications/index.html">
                 <span class="icon icon-bell"></span>
               </a>
             </li>
             <li>
-              <button class="btn btn-default navbar-btn navbar-btn-avitar" data-toggle="popover">
+              <button class="btn btn-default navbar-btn navbar-btn-avitar" data-toggle="popover"> -->
                 <!-- <img class="img-circle" src="../assets/img/avatar-dhg.png"> -->
-              </button>
+              <!-- </button>
             </li>
-          </ul>
+          </ul> -->
 
           <form class="navbar-form navbar-right app-search" role="search">
             <div class="form-group">
-              <input type="text" class="form-control" data-action="grow" id="searchText" placeholder="Search">
+              <input type="text" class="form-control" data-action="grow" placeholder="Search" ng-model="searchText">
             </div>
           </form>
 
+
+
+<!--
           <ul class="nav navbar-nav hidden-sm hidden-md hidden-lg">
             <li><a href="../index.html">Home</a></li>
             <li><a href="../profile/index.html">Profile</a></li>
@@ -84,7 +88,7 @@
           <ul class="nav navbar-nav hidden">
             <li><a href="#" data-action="growl">Growl</a></li>
             <li><a href="../login/index.html">Logout</a></li>
-          </ul>
+          </ul> -->
         </div>
     </div>
   </nav>
