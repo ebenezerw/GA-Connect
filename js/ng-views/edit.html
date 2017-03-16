@@ -14,5 +14,6 @@
   Select Course: <select data-ng-model="vm.student.course"><option data-ng-repeat="course in vm.courses"  value="{{course.course_name}}">{{course.course_name}}</select>
 <br>
   <button type="submit">Update</button>
+  <button type="button" ng-click="vm.destroy()" data-ui-sref = "gaIndex()">Delete</button>
   <button data-ui-sref = "gaShow({id: vm.student.id})">Back</button>
 </form>
