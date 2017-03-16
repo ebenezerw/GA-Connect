@@ -1,4 +1,7 @@
-<a data-ui-sref="gaNew">New User</a>
-<div data-ng-repeat="student in vm.students | filter:searchText">
-  <div class="profileOnIndex"><a data-ui-sref="gaShow({id: student.id})">{{student.full_name}}</a></div>
+<button data-ui-sref="gaNew">New User</button>
+<div data-ng-repeat="student in vm.students | filter: searchText" >
+  <div class="indexprofiles">
+  <p><img src="{{student.picture_url}}" /></p>
+  <p><a data-ui-sref="gaShow({id: student.id})">{{student.full_name}}</a></p></div>
+
 </div>

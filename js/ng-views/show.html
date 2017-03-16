@@ -1,17 +1,16 @@
 <h1>User Show</h1>
-<div ng-controller="GaShowController as vm">
-    <li>Email: {{vm.student.email}}</li>
-    <li>Name: {{vm.student.full_name}}</li>
-    <li>Headline: {{vm.student.headline}}</li>
-    <li>Location: {{vm.student.location}}</li>
-    <li>Position Title: {{vm.student.position_title}}</li>
-    <li>Position Company: {{vm.student.position_company}}</li>
-    <li>Course: {{vm.student.course}}</li>
-    <li>Picture: <img ng-src="{{vm.student.picture_url}}"></li>
-    <li>Profile: {{vm.student.profile_url}}</li>
-    <button data-ui-sref="gaEdit({id: vm.student.id})">Edit</button>
-    <button data-ui-sref="gaIndex()">Back</button>
+
+  <div ng-controller="GaShowController as vm">
+  <ul><img ng-src="{{vm.student.picture_url}}"></ul>
+  <ul>Name: {{vm.student.full_name}}</ul>
+  <ul>Email: {{vm.student.email}}</ul>
+  <ul>Headline: {{vm.student.headline}}</ul>
+  <ul>Location: {{vm.student.location}}</ul>
+  <ul>Position Title: {{vm.student.position_title}}</ul>
+  <ul>Position Company: {{vm.student.position_company}}</ul>
+  <ul>Course: {{vm.student.course}}</ul>
+  <ul>Profile: {{vm.student.profile_url}}</ul>
+  <button data-ui-sref = "gaEdit({id: vm.student.id})">Edit</button>
+  <button data-ui-sref = "gaIndex()">Back</button>
+
 </div>
-
-
-<!-- <a data-ui-sref= "entryEdit({id: entry.id})">Edit</a> -->
