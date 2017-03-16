@@ -1,13 +1,13 @@
 <h1>User Show</h1>
   <div ng-controller="GaShowController as vm">
-  <ul>Email: {{vm.student.email}}</ul>
+  <ul><img ng-src="{{vm.student.picture_url}}"></ul>
   <ul>Name: {{vm.student.full_name}}</ul>
+  <ul>Email: {{vm.student.email}}</ul>
   <ul>Headline: {{vm.student.headline}}</ul>
   <ul>Location: {{vm.student.location}}</ul>
   <ul>Position Title: {{vm.student.position_title}}</ul>
   <ul>Position Company: {{vm.student.position_company}}</ul>
   <ul>Course: {{vm.student.course}}</ul>
-  <ul>Picture: <img ng-src="{{vm.student.picture_url}}"></ul>
   <ul>Profile: {{vm.student.profile_url}}</ul>
   <button data-ui-sref = "gaEdit({id: vm.student.id})">Edit</button>
   <button data-ui-sref = "gaIndex()">Back</button>
