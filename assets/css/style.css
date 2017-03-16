@@ -13,3 +13,11 @@ h1.ng-scope {
 main.ng-scope {
   margin-left: 60px;
 }
+
+.indexprofiles{
+  border: 1px black solid;
+}
+
+/*.indexprofiles img{
+  margin-left: 500px;
+}*/
